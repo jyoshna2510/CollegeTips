@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeTips Photo Gallery</title>
+    <link rel="stylesheet" href="./gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <h1>CollegeTips Gallery!</h1>
+        <p>Get a glimpse into the CollegeTips world and our vibrant culture of hard work, fun, and creativity.</p>
+        
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Photos</button>
+            <button class="filter-btn" data-category="team">Team Vibes 🤝</button>
+            <button class="filter-btn" data-category="campaigns">Creative Campaigns 🎨</button>
+            <button class="filter-btn" data-category="events">Work Hard, Play Hard 🥳</button>
+            <button class="filter-btn" data-category="behind">Behind-The-Scenes 🎥</button>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Team Vibes -->
+            <div class="gallery-item" data-category="team">
+                <img src="./img/CT1.png" alt="Team meeting">
+                <div class="overlay">
+                    <h3>Team Meeting</h3>
+                    <p>Our amazing team brainstorming session</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="team">
+                <img src="./img/CT2.png" alt="Office fun">
+                <div class="overlay">
+                    <h3>Office Fun</h3>
+                    <p>Daily dose of laughter and creativity</p>
+                </div>
+            </div>
+
+            <!-- Creative Campaigns -->
+            <div class="gallery-item" data-category="campaigns">
+                <img src="./img/CT3.png" alt="Campaign launch">
+                <div class="overlay">
+                    <h3>Campaign Launch</h3>
+                    <p>Launching our latest creative campaign</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="campaigns">
+                <img src="./img/CT4.png" alt="Design workshop">
+                <div class="overlay">
+                    <h3>Design Workshop</h3>
+                    <p>Exploring new creative directions</p>
+                </div>
+            </div>
+
+            <!-- Work Hard, Play Hard -->
+            <div class="gallery-item" data-category="events">
+                <img src="./img/CT5.png" alt="Team celebration">
+                <div class="overlay">
+                    <h3>Team Celebration</h3>
+                    <p>Celebrating our achievements</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="events">
+                <img src="./img/CT6.png" alt="Company event">
+                <div class="overlay">
+                    <h3>Company Event</h3>
+                    <p>Annual team building event</p>
+                </div>
+            </div>
+
+            <!-- Behind-The-Scenes -->
+            <div class="gallery-item" data-category="behind">
+                <img src="./img/CT7.png" alt="Photo shoot">
+                <div class="overlay">
+                    <h3>Photo Shoot</h3>
+                    <p>Behind the scenes of our latest shoot</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="behind">
+                <img src="./img/CT8.png" alt="Content creation">
+                <div class="overlay">
+                    <h3>Content Creation</h3>
+                    <p>The magic happens here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
